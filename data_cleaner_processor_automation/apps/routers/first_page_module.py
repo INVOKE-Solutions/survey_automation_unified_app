@@ -2,6 +2,7 @@ import pandas as pd
 from fastapi import APIRouter, HTTPException
 from io import StringIO
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
 
 router = APIRouter( prefix="/first_page", tags=["Data_Cleaner_Pre_Processor"])
 
@@ -62,7 +63,7 @@ def process_file(request: FileProcessRequest):
         df_complete['Set'] = 'IVR'
         
         df_merge, phonenum_combined = merger([df_complete], [phonenum_list])
-        
+
         return {
             "message": "Processed successfully",
             "df_complete": df_complete.to_dict(orient='records'),  # Convert DataFrame to dictionary for response

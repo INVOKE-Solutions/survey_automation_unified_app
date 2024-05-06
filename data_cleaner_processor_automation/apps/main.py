@@ -15,7 +15,7 @@ app = FastAPI(
       openapi_url="/openapi.json",
 )
 
-@app.get("/welcome_page", response_class=HTMLResponse, summary="Welcome_Page", tags= ["Root_Of_FastAPI_Application"])
+@app.get("/", response_class=HTMLResponse, summary="Welcome_Page", tags= ["Root_Of_FastAPI_Application"])
 def root():
     html_content = """
     <!DOCTYPE html>

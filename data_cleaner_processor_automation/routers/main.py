@@ -9,13 +9,13 @@ from dotenv import load_dotenv
 load_dotenv()
 app = FastAPI(
       title="Streamlit Unified Survey Web Application API",
-      summary="A collection of endpoints for Streamlit Unified Survey Web Application",
+      summary="A collection of data cleaner and processor's endpoints for Streamlit Unified Survey Web Application",
       version="0.1.0",
       docs_url="/docs",
       openapi_url="/openapi.json",
 )
 
-@app.get("/welcome_page", response_class=HTMLResponse, summary="Welcome_Page", tags= ["Root_Of_FastAPI_Application"])
+@app.get("/", response_class=HTMLResponse, summary="Welcome_Page", tags= ["Root_Of_FastAPI_Application"])
 def root():
     html_content = """
     <!DOCTYPE html>
