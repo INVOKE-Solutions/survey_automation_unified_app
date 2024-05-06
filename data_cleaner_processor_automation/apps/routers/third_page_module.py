@@ -2,6 +2,8 @@ import re
 import json
 from fastapi import APIRouter
 from typing import Dict, Any
+from fastapi import HTTPException
+import json
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/third_page", tags=["Keypress_Decoder"])
@@ -63,9 +65,6 @@ def parse_text_to_json_third_page(input_data: TextContent):
                     data[current_question]["answers"][flow_no_key] = answer_text
 
             return data
-
-from fastapi import HTTPException
-import json
 
 @router.get("/process_file_content")
 def process_file_content(file_path: str, content_type: str):
