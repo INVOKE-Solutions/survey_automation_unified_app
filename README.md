@@ -22,14 +22,10 @@ This project is a unified web application for automating IVR data cleaning, weig
 5. **Deployment**: Launch the application on ECS for public or private use.
 6. **Operation**: Users interact with the application for data tasks, with AWS managing storage and scalability.
 
-#### Usage
-
-To use this application, ensure you have Docker installed. Clone the repository and navigate to the project directory. Run `docker-compose up` to build and start the application. Access the application at `http://localhost:8501` for Streamlit and `http://localhost:3838` for Shiny.
-
 #### License
 
 This project is licensed under the INVOKE License, which prohibits unauthorized copying, modification, merging, publishing, distribution, sublicensing, or selling of the software without explicit permission from INVOKE.
 
 #### Contributors
 
-- [Fahmi Zainal]([https://github.com/fahmizainal17])
+- [Fahmi Zainal](https://github.com/fahmizainal17)
