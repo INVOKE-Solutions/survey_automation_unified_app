@@ -1,10 +1,11 @@
-### INVOKE-Solutions/survey_automation_unified_app
 
-#### Overview
+# INVOKE-Solutions/survey_automation_unified_app
+
+## Overview
 
 This project is a unified web application for automating IVR data cleaning, weighting, and cross-tabulation. It combines Streamlit, Shiny, FastAPI, and AWS services, including API Gateway, S3, ECR, and ECS. The application features a dual frontend with Streamlit for Python tasks and Shiny for R tasks, supported by FastAPI for efficient data processing. AWS S3 stores both raw and processed data, while ECR and ECS manage and deploy Docker containers for scalability and reliability.
 
-#### Components
+## Components
 
 - **Streamlit and Shiny**: Frontend interfaces for interactive data processing tasks.
 - **FastAPI**: Backend logic for data operations and frontend service.
@@ -13,7 +14,7 @@ This project is a unified web application for automating IVR data cleaning, weig
 - **AWS ECR and ECS**: Store Docker images and manage container deployment and scaling.
 - **Docker**: Essential for containerizing the application, ensuring consistent operation across environments.
 
-#### Workflow
+## Workflow
 
 1. **Frontend Development**: Create interactive interfaces using Streamlit and Shiny.
 2. **Backend Development**: Implement data processing logic with FastAPI.
@@ -22,8 +23,9 @@ This project is a unified web application for automating IVR data cleaning, weig
 5. **Deployment**: Launch the application on ECS for public or private use.
 6. **Operation**: Users interact with the application for data tasks, with AWS managing storage and scalability.
 
-#### Project Structure
+## Project Structure
 
+```
 survey_automation_unified_app
 │   .gitignore
 │   LICENSE
@@ -71,12 +73,14 @@ survey_automation_unified_app
     │
     └───tests
             __init__.py
+```
 
-
-#### License
+## License
 
 This project is licensed under the INVOKE License, which prohibits unauthorized copying, modification, merging, publishing, distribution, sublicensing, or selling of the software without explicit permission from INVOKE.
 
-#### Contributors
+## Contributors
 
 - [Fahmi Zainal](https://github.com/fahmizainal17)
+
+---
