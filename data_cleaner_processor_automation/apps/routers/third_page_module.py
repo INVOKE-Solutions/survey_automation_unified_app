@@ -1,12 +1,15 @@
 import re
 import json
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from typing import Dict, Any
-from fastapi import HTTPException
-import json
 from pydantic import BaseModel
+import json
 
 router = APIRouter(prefix="/third_page", tags=["Keypress_Decoder"])
+
+# ---------------------------------------------------
+# Custom Sort Endpoint
+# ---------------------------------------------------
 
 @router.get("/custom_sort")
 def custom_sort(col):
@@ -19,6 +22,10 @@ def custom_sort(col):
             else:
                 return {"question_num":float('inf'),"flow_no":0}
 
+# ---------------------------------------------------
+# Classify Income Endpoint
+# ---------------------------------------------------
+
 @router.get("/classify_income")
 def classify_income(income):
             if income == 'RM4,850 & below':
@@ -27,6 +34,10 @@ def classify_income(income):
                 return {"income_group":'M40'}
             elif income in ['RM15,040 & above', 'RM10,961 to RM15,039']:
                 return {"income_group":'T20'}
+
+# ---------------------------------------------------
+# Parse Text to JSON Endpoint
+# ---------------------------------------------------
 
 class TextContent(BaseModel):
     text_content: str
@@ -66,6 +77,10 @@ def parse_text_to_json_third_page(input_data: TextContent):
 
             return data
 
+# ---------------------------------------------------
+# Process File Content Endpoint
+# ---------------------------------------------------
+
 @router.get("/process_file_content")
 def process_file_content(file_path: str, content_type: str):
     try:
@@ -88,6 +103,10 @@ def process_file_content(file_path: str, content_type: str):
     except Exception as e:
         print("Error processing file:", str(e))
         return None, "Error processing file", str(e)
+
+# ---------------------------------------------------
+# Flatten JSON Structure Endpoint
+# ---------------------------------------------------
 
 @router.post("/flatten_json_structure")
 def flatten_json_structure(input_data: Dict[str, Any]):

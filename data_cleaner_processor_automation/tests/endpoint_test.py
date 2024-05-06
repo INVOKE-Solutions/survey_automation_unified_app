@@ -121,5 +121,9 @@ def test_third_page_flatten_json_structure():
     assert "FlowNo_2=1" in response.json()
     assert response.json()["FlowNo_2=1"] == "Red"
 
+# ---------------------------------------------------
+# Running Pytest Directly
+# ---------------------------------------------------
+
 if __name__ == "__main__":
     pytest.main(["-v"])

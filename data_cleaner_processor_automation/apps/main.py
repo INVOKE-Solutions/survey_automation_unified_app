@@ -59,7 +59,10 @@ app.include_router(first_page_router, tags=["Data_Cleaner_Pre_Processor"])
 app.include_router(second_page_router, tags=["Questionnaire_Definer"])
 app.include_router(third_page_router, tags=["Keypress_Decoder"])
 
-# Run the application
+# ---------------------------------------------------
+# Running Pytest Directly
+# ---------------------------------------------------
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)

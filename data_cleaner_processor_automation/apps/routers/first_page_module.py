@@ -3,10 +3,11 @@ from fastapi import APIRouter, HTTPException
 from io import StringIO
 from pydantic import BaseModel
 
-class FileProcessRequest(BaseModel):
-    df_json: str  # This will validate that the incoming JSON contains this key and this expects a JSON string that can be loaded into a DataFrame
-
 router = APIRouter( prefix="/first_page", tags=["Data_Cleaner_Pre_Processor"])
+
+# ---------------------------------------------------
+# Merger Function
+# ---------------------------------------------------
 
 def merger(df_list, phonenum_list):
     """
@@ -33,6 +34,13 @@ def merger(df_list, phonenum_list):
         phonenum_combined = pd.DataFrame()  # Return an empty DataFrame if list is empty
 
     return df_merge, phonenum_combined
+
+# ---------------------------------------------------
+# Process File Endpoint
+# ---------------------------------------------------
+
+class FileProcessRequest(BaseModel):
+    df_json: str  # This will validate that the incoming JSON contains this key and this expects a JSON string that can be loaded into a DataFrame
 
 @router.post("/process_file")
 def process_file(request: FileProcessRequest):

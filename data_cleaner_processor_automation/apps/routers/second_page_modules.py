@@ -8,6 +8,10 @@ from fastapi import HTTPException
 
 router = APIRouter(prefix="/second_page", tags=["Questionnaire_Definer"])
 
+# ---------------------------------------------------
+# Parse Q&A Endpoint
+# ---------------------------------------------------
+
 class Question(BaseModel):
     question: str
     answers: Dict[str, str]
@@ -27,6 +31,10 @@ def parse_questions_and_answers(questionnaire: Questionnaire):
         return questions_and_answers
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+# ---------------------------------------------------
+# Parse Text to JSON Endpoint
+# ---------------------------------------------------
 
 class TextContent(BaseModel):
     text_content: str
@@ -55,6 +63,10 @@ def parse_text_to_json(input_data: TextContent):
             data[current_question]["answers"][flow_no_key] = answer_text
 
     return data
+
+# ---------------------------------------------------
+# Rename Columns Endpoint
+# ---------------------------------------------------
 
 class RenameColumnsRequest(BaseModel):
     columns: List[str]

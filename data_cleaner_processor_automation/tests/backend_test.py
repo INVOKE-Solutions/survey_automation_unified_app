@@ -22,7 +22,7 @@ def read_main():
     return {"message": "Welcome to the Unit Testing"}
 
 # ---------------------------------------------------s
-# First Page Module Tests
+# First Page Backend Tests
 # ---------------------------------------------------
 
 @pytest.fixture
@@ -57,7 +57,7 @@ def test_process_file(create_data: pd.DataFrame):
     assert len(result['df_merge']) > 0  # Ensuring df_merge is not empty
 
 # ---------------------------------------------------
-# Second Page Module Tests
+# Second Page Backend Tests
 # ---------------------------------------------------
 
 @pytest.fixture
@@ -145,7 +145,7 @@ def test_rename_columns(create_data: pd.DataFrame):
     assert all('PhoneNumber' in row and 'UserAction' in row for row in result), "New column names not found in all rows"
 
 # ---------------------------------------------------
-# Third Page Module Tests
+# Third Page Backend Tests
 # ---------------------------------------------------
 
 class TextContent(BaseModel):
