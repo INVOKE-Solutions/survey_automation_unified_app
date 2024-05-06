@@ -22,6 +22,57 @@ This project is a unified web application for automating IVR data cleaning, weig
 5. **Deployment**: Launch the application on ECS for public or private use.
 6. **Operation**: Users interact with the application for data tasks, with AWS managing storage and scalability.
 
+#### Project Structure
+
+survey_automation_unified_app
+│   .gitignore
+│   LICENSE
+│   README.md
+│   requirements.txt
+│
+├───crosstab_generator
+│   ├───apps
+│   │       __init__.py
+│   │
+│   └───tests
+│           __init__.py
+│
+├───data_cleaner_processor_automation
+│   │   main.py
+│   │
+│   ├───apps
+│   │   │   main.py
+│   │   │   
+│   │   └───routers
+│   │           first_page_module.py
+│   │           second_page_module.py
+│   │           third_page_module.py
+│   │           __init__.py
+│   │           
+│   ├───routers
+│   │       main.py
+│   │
+│   └───tests
+│       │   backend_test.py
+│       │   endpoint_test.py
+│       │   test_main.py
+│       │   __init__.py
+│       │
+│       ├───routers
+│       │       test_first_page_module.py
+│       │       test_second_page_module.py
+│       │       test_third_page_module.py
+│       │       __init__.py
+│       
+│
+└───survey_weighting__automation
+    ├───apps
+    │       __init__.py
+    │
+    └───tests
+            __init__.py
+
+
 #### License
 
 This project is licensed under the INVOKE License, which prohibits unauthorized copying, modification, merging, publishing, distribution, sublicensing, or selling of the software without explicit permission from INVOKE.
