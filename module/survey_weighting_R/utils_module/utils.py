@@ -76,7 +76,7 @@ def sorter(demo:str, df:pd.DataFrame)->list[str]:
                                      1 if re.match(r'^S', x) else
                                      2 if re.match(r'^R|^L', x) else 3))
 
-def convert_list_to_dict(pop_list:list[pd.DataFrame])-> Dict:
+def convert_list_to_dict(pop_list:list[pd.DataFrame])->Dict:
     '''
     A function to transform list of pandas data frame into dictionary to pass to endpoint.
 
@@ -94,7 +94,7 @@ def convert_list_to_dict(pop_list:list[pd.DataFrame])-> Dict:
 
     return pop_dict
 
-def convert_df_to_json(df: pd.DataFrame) -> str:
+def convert_df_to_json(df: pd.DataFrame)->str:
     """
     A function to convert a pandas Data Frame to JSON string format.
 
@@ -108,3 +108,16 @@ def convert_df_to_json(df: pd.DataFrame) -> str:
     json_object = {"data": json.loads(json_data)}
     final_json = json.dumps(json_object, indent=2)
     return final_json
+
+def convert_dict_to_json(input_dict: Dict)->str:
+    '''
+    A function to convert dictionary to JSON string format.
+
+    Args:
+        input_dict: Dictionary data
+
+    Returns:
+        json_string: JSON string
+    '''
+    json_string = json.dumps(input_dict, indent=2)
+    return json_string
