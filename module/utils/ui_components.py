@@ -29,3 +29,6 @@ def page_style(title:str):
     image = Image.open('module/photos/invoke_logo.png')
     st.title(title)
     st.image(image)
+
+def ui_divider():
+    st.divider()
