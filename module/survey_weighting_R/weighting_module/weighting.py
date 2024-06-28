@@ -4,7 +4,8 @@ import requests
 from module.survey_weighting_R.utils_module.utils import (
     convert_list_to_dict, 
     convert_df_to_json,
-    convert_dict_to_json
+    convert_dict_to_json,
+    json_to_df
     )
 
 url = st.secrets["survey_weighting"]["ENDPOINT"]
@@ -51,6 +52,7 @@ def calc_weight(
     )
 
     if response.status_code == 200:
-        return response.json()
+        df = json_to_df(response=response.json())
+        return df
     else:
-        return f"Error: {response}"
+        return f"Error: {response.status_code}"
