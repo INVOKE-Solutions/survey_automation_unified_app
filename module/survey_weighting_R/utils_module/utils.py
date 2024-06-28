@@ -121,3 +121,16 @@ def convert_dict_to_json(input_dict: Dict)->str:
     '''
     json_string = json.dumps(input_dict, indent=2)
     return json_string
+
+def json_to_df(response:list[Dict]):
+    '''
+    A function to convert JSON response into pandas Data Frame.
+
+    Args:
+        response: JSON response
+
+    Returns:
+        df: pandas Data Frame
+    '''
+    df = pd.read_json(response)
+    return df

@@ -127,11 +127,22 @@ def init_survey_weighting():
                     upper_limit = input_upper_limit()
                     button = st.button("Calculate Weights")
                     if button:
-                        response = calc_weight(
+                        df_weighted = calc_weight(
                             df=df,
                             sample_list=sample_list,
                             pop_list=pop_list,
                             lower_limit=lower_limit,
                             upper_limit=upper_limit
                         )
-                        st.write(response)
+                        st.dataframe(df_weighted)
+                        # display summary untrimmed
+                        # display summary trimmed
+                        df_name = df_name[:df_name.find('.')]
+                        st.balloons()
+                        st.header('Weighted survey ready for download!')
+                        st.download_button(
+                            label='📥 Download', 
+                            data=df_weighted, 
+                            file_name= df_name + '-weighted.xlsx'
+                            )
+        
